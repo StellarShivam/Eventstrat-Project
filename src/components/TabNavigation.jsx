@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const tabs = [
   "Eligibility Criteria",
@@ -11,28 +11,39 @@ const tabs = [
 
 const TabNavigation = () => {
   const [isSticky, setIsSticky] = useState(false);
-
-  const handleScroll = useCallback(() => {
-    const tabNav = document.getElementById("tab-nav");
-    if (tabNav) {
-      const stickyOffset = tabNav.offsetTop;
-      const shouldBeSticky = window.pageYOffset >= stickyOffset;
-
-      if (shouldBeSticky !== isSticky) {
-        setIsSticky(shouldBeSticky);
-      }
-    }
-  }, [isSticky]);
+  const stickyRef = useRef(null);
+  const observerRef = useRef(null);
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [handleScroll]);
+    // Create a sentinel element that will be placed just above the nav
+    const sentinel = document.createElement("div");
+    stickyRef.current.parentNode.insertBefore(sentinel, stickyRef.current);
+
+    observerRef.current = new IntersectionObserver(
+      ([entry]) => {
+        setIsSticky(!entry.isIntersecting);
+      },
+      {
+        threshold: [1.0],
+        rootMargin: "0px",
+      }
+    );
+
+    observerRef.current.observe(sentinel);
+
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+      sentinel.remove();
+    };
+  }, []);
 
   return (
     <div
+      ref={stickyRef}
       id="tab-nav"
-      className={`border-b border-gray-200 bg-white transform-gpu ${
+      className={`border-b border-gray-200 bg-white will-change-transform ${
         isSticky ? "sticky top-0 z-30 shadow-sm" : ""
       }`}
     >
