@@ -29,7 +29,7 @@ export default function Beverages() {
 
   return (
     <div className="bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-8">
+      <div className="max-w-7xl mx-auto py-4 sm:py-8">
         <div className="bg-gray-50 rounded-lg p-4 sm:p-8">
           {/* Mobile Menu Button */}
           <div className="md:hidden mb-4">
