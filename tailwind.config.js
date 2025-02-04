@@ -6,6 +6,15 @@ export default {
       fontFamily: {
         satoshi: ["Satoshi", "sans-serif"],
       },
+      utilities: {
+        ".scrollbar-hide": {
+          "-ms-overflow-style": "none",
+          "scrollbar-width": "none",
+          "&::-webkit-scrollbar": {
+            display: "none",
+          },
+        },
+      },
     },
   },
   plugins: [],

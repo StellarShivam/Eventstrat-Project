@@ -18,7 +18,7 @@ const tocItems = [
 
 const TableOfContents = () => {
   return (
-    <div className="w-64 pr-8">
+    <div className="w-64 pr-8 pb-4">
       <h2 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-3">
         TABLE OF CONTENTS
       </h2>

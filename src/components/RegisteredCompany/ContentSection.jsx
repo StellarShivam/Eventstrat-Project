@@ -38,7 +38,7 @@ const ContentSection = () => {
   ];
 
   return (
-    <div className="flex-1">
+    <div className="flex-1 ">
       <h1 className="text-2xl font-bold text-[#124673] mb-4">
         Registered company
       </h1>
@@ -54,7 +54,6 @@ const ContentSection = () => {
       </h2>
 
       <AccordionContent content={sections} />
-
       <CompanyTypes />
       <GSTRegistration />
       <PANRegistration />

@@ -9,7 +9,7 @@ const Page = () => {
       <TabNavigation />
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="flex gap-8">
+        <div className="sm:flex gap-8">
           <TableOfContents />
           <ContentSection />
         </div>

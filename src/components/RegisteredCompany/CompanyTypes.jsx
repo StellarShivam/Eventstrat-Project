@@ -34,7 +34,7 @@ const CompanyTypes = () => {
   ];
 
   return (
-    <div className="max-w-4xl  py-8">
+    <div className="max-w-3xl  py-8">
       <h2 className="text-2xl font-bold text-gray-900 mb-6">
         Types of Companies
       </h2>
@@ -50,11 +50,11 @@ const CompanyTypes = () => {
           company type. Generally, it involves:
         </p>
 
-        <div className="bg-[#F3F4F6] rounded-lg p-6 mb-6 max-w-xl">
+        <div className="bg-[#DAE3EA] rounded-lg p-6 mb-6 max-w-xl">
           <div className="space-y-4">
             {registrationSteps.map((step, index) => (
               <div key={index} className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-gray-600 mt-0.5" />
+                <Check className="min-w-[20px] min-h-[20px] w-5 h-5 text-gray-600 mt-0.5 flex-shrink-0" />
                 <span className="text-gray-600">{step}</span>
               </div>
             ))}

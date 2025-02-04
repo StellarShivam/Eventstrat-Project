@@ -6,7 +6,7 @@ const GridContent = ({ content }) => {
       {content.map((type, index) => (
         <div
           key={index}
-          className="bg-[#F3F4F6] rounded-lg p-10 hover:shadow-md transition-shadow"
+          className="bg-[#DAE3EA] rounded-lg p-5 md:p-10 hover:shadow-md transition-shadow"
         >
           <h3 className="font-medium text-gray-900 mb-2">{type.title}</h3>
           <p className="text-gray-600 text-sm">{type.description}</p>
