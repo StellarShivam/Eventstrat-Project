@@ -1,5 +1,5 @@
 import { ChevronDown } from "lucide-react";
-import logo from "../assets/Logo.png";
+import logo from "../assets/Logo (1).png";
 
 const Navbar = () => {
   return (
