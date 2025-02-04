@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 const tabs = [
   "Eligibility Criteria",
@@ -12,23 +12,27 @@ const tabs = [
 const TabNavigation = () => {
   const [isSticky, setIsSticky] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const tabNav = document.getElementById("tab-nav");
-      if (tabNav) {
-        const stickyOffset = tabNav.offsetTop;
-        setIsSticky(window.pageYOffset >= stickyOffset);
-      }
-    };
+  const handleScroll = useCallback(() => {
+    const tabNav = document.getElementById("tab-nav");
+    if (tabNav) {
+      const stickyOffset = tabNav.offsetTop;
+      const shouldBeSticky = window.pageYOffset >= stickyOffset;
 
-    window.addEventListener("scroll", handleScroll);
+      if (shouldBeSticky !== isSticky) {
+        setIsSticky(shouldBeSticky);
+      }
+    }
+  }, [isSticky]);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [handleScroll]);
 
   return (
     <div
       id="tab-nav"
-      className={`border-b border-gray-200 bg-white ${
+      className={`border-b border-gray-200 bg-white transform-gpu ${
         isSticky ? "sticky top-0 z-30 shadow-sm" : ""
       }`}
     >
