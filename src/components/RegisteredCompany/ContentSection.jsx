@@ -1,32 +1,9 @@
-import React from "react";
-import { ChevronDown, ChevronUp } from "lucide-react";
-
-const AccordionItem = ({ title, content, isOpen, onToggle }) => {
-  return (
-    <div className="border-b border-gray-200 py-4">
-      <button
-        className="flex justify-between items-center w-full text-left"
-        onClick={onToggle}
-      >
-        <h3 className="text-lg font-medium text-gray-900">{title}</h3>
-        {isOpen ? (
-          <ChevronUp className="h-5 w-5 text-gray-500" />
-        ) : (
-          <ChevronDown className="h-5 w-5 text-gray-500" />
-        )}
-      </button>
-      {isOpen && (
-        <div className="mt-4 text-gray-600">
-          <p>{content}</p>
-        </div>
-      )}
-    </div>
-  );
-};
+import CompanyTypes from "./CompanyTypes";
+import AccordionContent from "../AccordionContent";
+import GSTRegistration from "../GSTRegistration/GSTRegistration";
+import PANRegistration from "../PANRegistration/PANRegistration";
 
 const ContentSection = () => {
-  const [openSection, setOpenSection] = React.useState("legal");
-
   const sections = [
     {
       id: "legal",
@@ -62,7 +39,7 @@ const ContentSection = () => {
 
   return (
     <div className="flex-1">
-      <h1 className="text-2xl font-bold text-gray-900 mb-4">
+      <h1 className="text-2xl font-bold text-[#124673] mb-4">
         Registered company
       </h1>
       <p className="text-gray-600 mb-8">
@@ -76,19 +53,11 @@ const ContentSection = () => {
         Why Company Registration Matters for Spice Exporters?
       </h2>
 
-      <div className="space-y-2">
-        {sections.map((section) => (
-          <AccordionItem
-            key={section.id}
-            title={section.title}
-            content={section.content}
-            isOpen={openSection === section.id}
-            onToggle={() =>
-              setOpenSection(openSection === section.id ? "" : section.id)
-            }
-          />
-        ))}
-      </div>
+      <AccordionContent content={sections} />
+
+      <CompanyTypes />
+      <GSTRegistration />
+      <PANRegistration />
     </div>
   );
 };

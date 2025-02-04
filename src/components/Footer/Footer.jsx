@@ -7,7 +7,6 @@ export default function Footer() {
     <footer className="bg-[#1C1C1C] text-white py-12">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-12">
-          {/* Logo and Search Section */}
           <div className="md:col-span-4">
             <Link href="/" className="inline-block mb-6">
               <img src={logo} alt="CultivAlte Logo" className="w-auto h-20" />
@@ -22,7 +21,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Navigation Links */}
           <div className="md:col-span-2 md:col-start-7">
             <h3 className="text-lg font-semibold mb-4">Useful Links</h3>
             <ul className="space-y-3">
@@ -118,7 +116,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Section */}
         <div className="border-t border-[#F2B90F]">
           <div className="flex flex-wrap px-2 gap-4 justify-center md:justify-between mt-6 text-sm text-gray-400">
             <Link href="#" className="hover:text-white">

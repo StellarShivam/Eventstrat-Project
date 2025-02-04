@@ -6,12 +6,10 @@ const Navbar = () => {
     <nav className="bg-white shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
           <div className="flex-shrink-0">
             <img src={logo} alt="CultiVate" className="h-8 w-auto" />
           </div>
 
-          {/* Navigation Links */}
           <div className="hidden md:flex items-center space-x-8">
             <a href="#" className="text-gray-600 hover:text-gray-900">
               Home
@@ -46,7 +44,6 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Right side buttons */}
           <div className="flex items-center space-x-4">
             <button className="text-gray-600 hover:text-gray-900">
               Log in

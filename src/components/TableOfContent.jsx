@@ -29,7 +29,7 @@ const TableOfContents = () => {
             href="#"
             className={`block py-1 text-sm ${
               index === 0
-                ? "text-blue-600 font-medium"
+                ? "text-[#124673] font-semibold"
                 : "text-gray-600 hover:text-gray-900"
             }`}
           >

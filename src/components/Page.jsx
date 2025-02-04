@@ -1,6 +1,7 @@
 import TabNavigation from "./TabNavigation";
 import TableOfContents from "./TableOfContent";
 import ContentSection from "./RegisteredCompany/ContentSection";
+import Bevrages from "./Bevrages/Bevrages";
 
 const Page = () => {
   return (
@@ -12,6 +13,7 @@ const Page = () => {
           <TableOfContents />
           <ContentSection />
         </div>
+        <Bevrages />
       </main>
     </div>
   );
